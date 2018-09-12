@@ -37,7 +37,6 @@ export class WineService {
 http://localhost にアクセス
 ~~~
 
-
 # 依存関係
 
 ~~~
