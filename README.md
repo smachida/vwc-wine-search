@@ -29,8 +29,12 @@ export class WineService {
 ~~~
 
 ~~~
-# ./mvnw clean package -DskipTests=true docker:build
-# docker-compose up -d
+# npm install
+# ng build --prod
+# docker build --tag=vwc-wine-search .
+# docker run -d -p 80:80 --rm --name vwc-wine-search vwc-wine-search
+
+http://localhost にアクセス
 ~~~
 
 
