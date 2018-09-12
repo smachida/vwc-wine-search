@@ -1,6 +1,7 @@
 # 概要
 
 Wine Mates アプリケーション - Virtual Wine Cellar(VWC) ワイン検索アプリ:
+
 このアプリケーションは、vwc-server-java (ワイン情報検索 API)のフロントエンドです。
 
 # HowTo: Build & Run
