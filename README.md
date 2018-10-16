@@ -24,7 +24,7 @@ export class WineService {
   WEB_API_URL: string = "http://ec2-52-192-145-111.ap-northeast-1.compute.amazonaws.com:28080/api/v1/wine/wines";
   //DEFAULT_SIZE: string = "30";
   〜〜〜　省略　〜〜〜
-  
+   
 ~~~
 
 ~~~
