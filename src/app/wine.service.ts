@@ -15,6 +15,7 @@ export class WineService {
   // DEFAULT_SIZE: string = "30";
 
   constructor(private http: HttpClient) {
+
   }
 
   getWineData(countryCode: string): Observable<WineData> {
