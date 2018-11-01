@@ -35,7 +35,7 @@ export class WineService {
     return this.http.get(url)
       .map(res => {
           let wineData;
-          let dataObj = res;
+          let dataObj = res.results;
           wineData = {
             error: null,
             data: dataObj,
