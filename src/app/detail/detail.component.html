@@ -1,0 +1,77 @@
+<div bsModal #lgModal="bs-modal" class="modal">
+
+  <div class="modal-dialog modal-content"
+       *ngIf="wineData?.description">
+
+    <!--ヘッダー-->
+    <div class="modal-header">
+      <!--行き先国名-->
+      <span class="modal-title">
+          {{wineData.name}}
+        </span>
+      <!--閉じるアイコン-->
+      <button type="button" class="close"
+              (click)="lgModal.hide()">
+        Ｘ閉じる
+      </button>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row">
+        <!--左カラム-->
+        <div class="col-xs-12 col-sm-6">
+<!--
+          <carousel [interval]="3000" [noPause]="true"
+                    [(activeSlide)]="activeSlideIndex">
+            <slide
+              *ngFor="let slide of wineData.img; let index=index">
+              <img [src]="slide.l">
+              <div class="carousel-caption"></div>
+              <div class="myCaption">{{slide.caption}}</div>
+            </slide>
+          </carousel>
+-->
+        </div>
+
+        <!--右カラム-->
+        <div class="col-xs-12 col-sm-6">
+
+          <!--ワイン情報-->
+          <p class="myLabel">説明</p>
+          <p>{{wineData.description}}</p>
+          <p class="myLabel">製造者</p>
+          <p>{{wineData.wineMaker?.name}} ({{wineData.wineMaker?.country?.name}})</p>
+          <p class="myLabel">色</p>
+          <p>{{wineData.wineColor?.name}}</p>
+          <p class="myLabel">風味</p>
+          <p>{{wineData.wineTaste?.description}}</p>
+          <p class="myLabel">主要なブドウ品種</p>
+          <p>{{wineData.grapeVariety?.name}}
+          </p>
+          <p class="myLabel">ブドウ品種(詳細)</p>
+          <p>
+            <span *ngFor="let grapeVariety of wineData.grapeVarieties">
+              {{grapeVariety.name}}<br>
+            </span>
+          </p>
+          <p class="myLabel">ヴィンテージ</p>
+          <p>{{wineData.year}}
+          </p>
+          <p class="myLabel">価格</p>
+          <p>{{wineData.priceBottle | number }}
+            円 〜
+          </p>
+
+          <!--閉じるボタン-->
+          <p>
+            <button class="btn btn-block btn-default"
+                    (click)="lgModal.hide()">
+              閉じる
+            </button>
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

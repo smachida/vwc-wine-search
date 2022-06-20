@@ -1,0 +1,24 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vwc-wine-search
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: vwc-wine-search
+  template:
+    metadata:
+      labels:
+        app: vwc-wine-search
+    spec:
+      containers:
+        - name: vwc-wine-search
+          image: 172.16.140.11/apps/vwc-wine-search:latest
+          imagePullPolicy: Always
+          ports:
+          - containerPort: 80
+      imagePullSecrets:
+      - name: regcred-harbor-dev
+

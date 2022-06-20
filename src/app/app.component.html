@@ -1,0 +1,134 @@
+<div id="myHeaderBar">
+
+  <!--エリア選択ボタン-->
+  <button
+    (click)="isCollapsed = !isCollapsed"
+    id="areaButton"
+    class="btn btn-default">
+    国の選択
+  </button>
+
+  <!--ヘッダータイトル-->
+  <span
+    class="myTitle"
+    *ngIf="!isMobile">
+    ワインメイト - あなたのお気に入りのワインは？
+  </span>
+  <span
+    class="myTitle"
+    *ngIf="isMobile">
+    ワインメイト
+  </span>
+
+<!--
+
+  <span
+    class="myTitle"
+    *ngIf="!isMobile">
+    ワインメイト - あなたのお気に入りのワインは？
+  </span>
+  <span
+    class="myTitle"
+    *ngIf="isMobile">
+    ワインメイト
+  </span>
+-->
+
+</div>
+
+<!--エリア選択メニュー-->
+<div [collapse]="isCollapsed">
+  <table
+    (click)="isCollapsed = !isCollapsed"
+    class="table table-bordered"
+    id="mySelectTable">
+    <tbody class="myTableHover">
+    <tr *ngFor="let country of countries; let i = index">
+      <td (click)="onCountryChange(i)">
+        {{country.name}}
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<!--旅行一覧-->
+<div>
+
+  <!--PC用 isMobileがfalseの時-->
+  <table
+    class="table table-bordered"
+    *ngIf="!isMobile">
+    <tr
+      *ngFor="let data of selectedData; let i = index">
+      <td class="td_id">{{i+1}}<br>
+        <span
+          class="glyphicon glyphicon-bookmark"
+          (click)="onBookmarkClick(data.wineId, i)"
+          [class.marked]="isMarked(data.wineId)">
+        </span>
+      </td>
+      <td class="td_country">
+        {{data.name}}
+      </td>
+      <!--
+      <td class="td_photo">
+        <img
+          [src]="data.img[0]?.s"
+          *ngIf="data.img[0]">
+      </td>
+      -->
+      <td class="td_price">
+        <span class="priceFont">
+          {{data.priceBottle | number }}
+        </span>円～
+      </td>
+      <td class="td_description">
+        {{data.description}}
+      </td>
+      <td class="td_link">
+        <button
+          (click)="onDetailClick(i)"
+          class="btn btn-sm btn-primary">
+          詳細
+        </button>
+      </td>
+    </tr>
+  </table>
+
+  <!-- モバイル用 -->
+  <table
+    class="table table-bordered"
+    *ngIf="isMobile">
+    <tr *ngFor="let data of selectedData; let i = index">
+      <!--
+      <td class="td_photo_mobile">
+        <img
+          [src]="data?.img[0]?.s" class="mobileImg">
+      </td>
+      -->
+      <td class="mobileText">
+        #{{i+1}}
+        <span
+          class="glyphicon glyphicon-bookmark"
+          (click)="onBookmarkClick(data.wineId, i)"
+          [class.marked]="isMarked(data.wineId)">
+        </span>
+        {{data.name}}
+        <span class="priceFont">
+          {{data.priceBottle | number }}</span>円〜
+        <br>
+        {{data.description}}
+        <button
+          (click)="onDetailClick(i)"
+          class="btn btn-sm btn-primary">
+          詳細
+        </button>
+      </td>
+
+    </tr>
+  </table>
+
+  <detail-dialog [wineData]="wineObj" #detailDialog>
+  </detail-dialog>
+</div>

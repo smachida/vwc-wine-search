@@ -1,0 +1,194 @@
+/*==============================*/
+/*ヘッダーバー*/
+/*==============================*/
+/*ヘッダー枠*/
+#myHeaderBar {
+  background-color: steelblue;
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  color: white;
+  font-family: sans-serif;
+  font-weight: bold;
+  position: fixed;
+  top: 0;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 10;
+}
+
+/*エリア選択ボタン*/
+#areaButton {
+  height: 35px;
+  width: 100px;
+  position: absolute;
+  top: 7px;
+  left: 0;
+}
+
+/*ABROADクレジット表示*/
+img.abloadCredit {
+  height: 35px;
+  width: 88px;
+  position: absolute;
+  top: 7px;
+  left: 120px;
+}
+
+/*ヘッダータイトル*/
+.myTitle {
+  position: absolute;
+  left: 210px;
+  font-size: 20px;
+}
+
+/*エリア選択メニュー全体*/
+table#mySelectTable {
+  table-layout: fixed;
+  background-color: steelblue;
+  width: 8em;
+  position: fixed;
+  top: 50px;
+  margin-left: 0;
+  margin-right: auto;
+  z-index: 10;
+}
+
+/*エリア選択メニュー列*/
+#mySelectTable tr {
+  height: 1.5em;
+}
+
+/*エリア選択メニュー列(マウスオーバーで着色)*/
+#mySelectTable td:hover {
+  background-color: silver;
+  color: red;
+}
+
+/*エリア選択メニューセル*/
+#mySelectTable td {
+  font-size: 1.5em;
+  width: 8em;
+  color: white;
+  font-weight: bold;
+  background-color: steelblue;
+}
+
+/*==============================*/
+/*旅行一覧*/
+/*==============================*/
+
+/*ブックマークアイコン*/
+.glyphicon {
+  color: darkgray;
+  z-index: 0;
+}
+
+/*フックマーク選択時*/
+.marked {
+  color: red;
+}
+
+/*価格表示用フォント*/
+.priceFont {
+  font-family: Verdana;
+  font-weight: bold;
+  color: red;
+}
+
+/*表全体*/
+table {
+  width: 100%;
+  border-width: 1px;
+  border-color: black;
+  background-color: white;
+}
+
+/*行*/
+tr {
+  height: 90px;
+  background-color: white;
+}
+
+/*行(偶数行目を着色)*/
+table tr:nth-child(odd) {
+  background-color: cornsilk;
+}
+
+/*セル*/
+td {
+  padding: 0.3em;
+  font-weight: bold;
+  font-size: 1.5em;
+  font-family: sans-serif;
+}
+
+/*順位表示セル*/
+.td_id {
+  width: 3em;
+  text-align: center;
+}
+
+/*国名表示セル*/
+.td_country {
+  width: 6em;
+  text-align: left;
+}
+
+/*写真表示セル*/
+.td_photo {
+  width: 120px;
+  text-align: center;
+}
+
+/*価格表示セル*/
+.td_price {
+  width: 8em;
+  font-size: 1.2em;
+  text-align: right;
+  color: red;
+}
+
+/*説明表示セル*/
+.td_description {
+  text-align: left;
+  font-size: 1.1em;
+}
+
+/*詳細情報呼び出しセル*/
+.td_link {
+  width: 3em;
+  text-align: center;
+}
+
+/*詳細情報呼び出しボタン*/
+button {
+  margin: 0 1em 0 1em;
+  font-weight: bold;
+}
+
+/*写真(PC用)*/
+img {
+  height: 86px;
+}
+
+/*==============================*/
+/*モバイル*/
+/*==============================*/
+/*文字*/
+.mobileText {
+  font-size: 1em;
+}
+
+/*写真*/
+.mobileImg {
+  float: left;
+  width: 100px;
+  height: inherit;
+}
+
+/*写真表示のセル*/
+.td_photo_mobile {
+  width: 100px;
+}

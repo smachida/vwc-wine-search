@@ -1,0 +1,36 @@
+version: '3.5'
+
+services:
+  vwc-wine-search-dev:
+    image: vwc-wine-search
+    depends_on:
+      - vwc-server-dev
+    ports:
+      - 80:80
+
+# テスト用 API サーバ環境
+  vwc-mysql:
+    #image: mysql/mysql-server:5.7.23
+    image: mysql/mysql-server
+    command: mysqld --character-set-server=utf8 --collation-server=utf8_unicode_ci
+    environment:
+      - MYSQL_ROOT_PASSWORD=vwcpassword
+      - MYSQL_DATABASE=vwcserverdb
+      - MYSQL_USER=vwcuser
+      - MYSQL_PASSWORD=vwcpassword
+    ports:
+      - 13306:3306
+  vwc-server-dev:
+    image: harbor-prod.mp-tanzu-demo.com/apps/vwc-server-dev:latest
+    depends_on:
+      - vwc-mysql
+    ports:
+      - 8080:8080
+    environment:
+#      - SPRING_PROFILES_ACTIVE=container
+      - SPRING_PROFILES_ACTIVE=docker
+      - DATABASE_HOST=vwc-mysql
+      - DATABASE_USER=vwcuser
+      - DATABASE_PASSWORD=vwcpassword
+      - DATABASE_NAME=vwcserverdb
+      - DATABASE_PORT=3306

@@ -1,0 +1,24 @@
+version: '3.5'
+
+services: 
+  vwc-mysql:
+    image: mysql/mysql-server:5.7.23
+    command: mysqld --character-set-server=utf8 --collation-server=utf8_unicode_ci
+    environment:
+      - MYSQL_ROOT_PASSWORD=vwcpassword
+      - MYSQL_DATABASE=vwcserverdb
+      - MYSQL_USER=vwcuser
+      - MYSQL_PASSWORD=vwcpassword
+  vwc-server:
+#    image: smachida/vwc-server
+    image: vwc-server:latest
+    depends_on:
+      - vwc-mysql
+    ports:
+      - 8080:8080
+    environment:
+      - DATABASE_HOST=vwc-mysql
+      - DATABASE_USER=vwcuser
+      - DATABASE_PASSWORD=vwcpassword
+      - DATABASE_NAME=vwcserverdb
+      - DATABASE_PORT=3306
